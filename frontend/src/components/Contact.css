@@ -79,7 +79,7 @@
   transform: translateY(-2px);
 }
 
-.contact-form {
+.contact-cta {
   background: white;
   padding: 2rem;
   border-radius: 8px;
@@ -87,61 +87,43 @@
   border: 1px solid #e5e7eb;
 }
 
-.form-group {
+.contact-cta h3 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-cta p {
+  color: #6b7280;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form .btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.form-status {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-}
-
-.form-status.success {
-  color: #166534;
-}
-
-.form-status.error {
-  color: #b91c1c;
-}
-
-.mailto-fallback {
+.contact-cta .btn {
   display: inline-block;
-  margin-top: 0.75rem;
-  color: #1d4ed8;
-  font-weight: 600;
-  text-decoration: none;
 }
 
-.mailto-fallback:hover {
+.copy-email {
+  display: block;
+  margin-top: 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1d4ed8;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+.copy-email:hover,
+.copy-email:focus-visible {
   text-decoration: underline;
 }
 
+.copy-status {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
 @media (max-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr;
