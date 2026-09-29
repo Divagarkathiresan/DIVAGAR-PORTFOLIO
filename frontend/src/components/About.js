@@ -1,5 +1,6 @@
 import React from 'react';
 import { useScrollAnimation } from '../utils/scrollAnimation';
+import CountUp from './CountUp';
 import './About.css';
 
 const About = () => {
@@ -38,15 +39,15 @@ const About = () => {
           <div className="about-sidebar animate-on-scroll from-right">
             <div className="about-stats">
               <div className="stat">
-                <h3>4+</h3>
+                <h3><CountUp value={4} suffix="+" /></h3>
                 <p>Projects Completed</p>
               </div>
               <div className="stat">
-                <h3>3+</h3>
+                <h3><CountUp value={3} suffix="+" /></h3>
                 <p>Years Learning</p>
               </div>
               <div className="stat">
-                <h3>100%</h3>
+                <h3><CountUp value={100} suffix="%" /></h3>
                 <p>Dedication</p>
               </div>
             </div>

@@ -1,0 +1,35 @@
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.loader-content { width: min(420px, calc(100vw - 3rem)); }
+
+.loader-eyebrow,
+.loader-label {
+  display: block;
+  color: #a0a0a0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.loader-count {
+  margin: 0.25rem 0 0.8rem;
+  color: #3b82f6;
+  font-size: clamp(4.5rem, 18vw, 8rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.08em;
+}
+
+.loader-track { height: 3px; overflow: hidden; background: #252525; }
+.loader-progress { height: 100%; background: #3b82f6; box-shadow: 0 0 18px rgba(59, 130, 246, 0.85); transition: width 16ms linear; }
+.loader-label { margin-top: 0.85rem; }

@@ -1,12 +1,46 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { useScrollAnimation } from '../utils/scrollAnimation';
+import CountUp from './CountUp';
+import foodDeliveryPreview from '../assets/food-delivery-preview.png';
+import eduStayPreview from '../assets/edustay-preview.png';
+import learnBasePreview from '../assets/learnbase-preview.png';
 import './Projects.css';
 
 const Projects = () => {
   useScrollAnimation();
   
   const projects = [
+    {
+      title: 'Food Delivery System',
+      description: 'Responsive React-based food delivery interface with restaurant browsing, cart management, and order placement. Implemented Hooks Context for state management, integrated REST APIs for live order updates.',
+      tech: ['React', 'JavaScript', 'CSS'],
+      github: 'https://github.com/Divagarkathiresan/food-delivery',
+      live: 'https://food-delivery-frontend-uixs.onrender.com',
+      type: 'Frontend - UI/UX - Responsive Design',
+      image: foodDeliveryPreview,
+      imageAlt: 'Foodie Bee food delivery system interface'
+    },
+    {
+      title: 'LearnBase',
+      description: 'Full-stack LMS using Spring Boot and React. Developed APIs for authentication, courses, assignments, and roles (student/admin). Implemented JWT + RBAC security and built a responsive frontend with Hooks/Context.',
+      tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'REST API'],
+      github: 'https://github.com/Divagarkathiresan/Learning-Management-System',
+      live: 'https://learning-management-system-cn9j.onrender.com',
+      type: 'Full Stack - System Architecture',
+      image: learnBasePreview,
+      imageAlt: 'LearnBase learning management system interface'
+    },
+    {
+      title: 'EduStay',
+      description: 'Full-stack accommodation management system using Spring Boot and React. REST APIs for authentication, property listings, bookings, and role-based access. JWT-based authentication with RBAC security.',
+      tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'REST API'],
+      github: 'https://github.com/Divagarkathiresan/EduStay/tree/postgreSql',
+      live: 'https://edustay-frontend-56xj.onrender.com',
+      type: 'Full Stack',
+      image: eduStayPreview,
+      imageAlt: 'EduStay accommodation search interface'
+    },
     {
       title: 'GlycoSense',
       description: 'AI-powered virtual health assistant for diabetes risk prediction. Integrated machine learning models, explainable AI (XAI), analytics dashboards, and conversational interfaces to deliver personalized preventive healthcare insights.',
@@ -20,30 +54,6 @@ const Projects = () => {
       tech: ['FastAPI', 'FAISS', 'SentenceTransformers', 'Google Gemini AI', 'Python'],
       github: 'https://github.com/Divagarkathiresan',
       type: 'AI / NLP - Multilingual - Document Intelligence'
-    },
-    {
-      title: 'Food Delivery System',
-      description: 'Responsive React-based food delivery interface with restaurant browsing, cart management, and order placement. Implemented Hooks Context for state management, integrated REST APIs for live order updates.',
-      tech: ['React', 'JavaScript', 'CSS'],
-      github: 'https://github.com/Divagarkathiresan/food-delivery',
-      live: 'https://food-delivery-frontend-uixs.onrender.com',
-      type: 'Frontend - UI/UX - Responsive Design'
-    },
-    {
-      title: 'LearnBase',
-      description: 'Full-stack LMS using Spring Boot and React. Developed APIs for authentication, courses, assignments, and roles (student/admin). Implemented JWT + RBAC security and built a responsive frontend with Hooks/Context.',
-      tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'REST API'],
-      github: 'https://github.com/Divagarkathiresan/Learning-Management-System',
-      live: 'https://learning-management-system-cn9j.onrender.com',
-      type: 'Full Stack - System Architecture'
-    },
-    {
-      title: 'EduStay',
-      description: 'Full-stack accommodation management system using Spring Boot and React. REST APIs for authentication, property listings, bookings, and role-based access. JWT-based authentication with RBAC security.',
-      tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'REST API'],
-      github: 'https://github.com/Divagarkathiresan/EduStay/tree/postgreSql',
-      live: 'https://edustay-frontend-56xj.onrender.com',
-      type: 'Full Stack'
     }
   ];
 
@@ -56,8 +66,14 @@ const Projects = () => {
             <div
               key={index}
               className="project-card animate-on-scroll"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
+              {project.image && (
+                <div className="project-preview">
+                  <img src={project.image} alt={project.imageAlt} />
+                  <span className="preview-label">Live interface</span>
+                </div>
+              )}
               <div className="project-header">
                 <div className="project-type">{project.type}</div>
                 <h3>{project.title}</h3>
@@ -68,6 +84,12 @@ const Projects = () => {
                   <span key={techIndex} className="tech-tag">{tech}</span>
                 ))}
               </div>
+              {project.metric && (
+                <div className="project-number" aria-label={`${project.metric.value}${project.metric.suffix || ''} ${project.metric.label}`}>
+                  <strong><CountUp value={project.metric.value} suffix={project.metric.suffix || ''} /></strong>
+                  <span>{project.metric.label}</span>
+                </div>
+              )}
               {project.metrics && (
                 <div className="project-metrics">
                   <h4>Key Achievements:</h4>

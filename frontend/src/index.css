@@ -147,6 +147,25 @@ body::before {
   padding: 80px 0;
 }
 
+.section {
+  position: relative;
+  animation: section-settle 0.8s ease both;
+}
+
+@keyframes section-settle {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
